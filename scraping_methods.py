@@ -77,7 +77,6 @@ class kabuoji3_class():
         # plt.plot(range(1, len(data_list_x)+1), rrr, label="Closing Price")
         # plt.plot(range(1, len(data_list_x)+1), ttt, label="出来高")
         # plt.plot(range(1, len(data_list_x)+1), yyy, label="終値調整")
-        plt.legend(loc='lower right')
         return data_list_x
 
 class finance_yahoo_class():

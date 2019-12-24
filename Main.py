@@ -3,18 +3,18 @@ import scraping_methods
 
 if __name__ == '__main__':
     yyy = scraping_methods.kabuoji3_class()
-    kabuka_data = yyy.kabuoji3("https://kabuoji3.com/stock/6501/")
-    # kabuka_data = yyy.kabuoji3("https://kabuoji3.com/stock/3668/2018/")
-    for i in range(len(kabuka_data)):
-        print(kabuka_data[i])
-    # print("@")
-    # print("@")
-    # print("@")
-    # for i in range(7):
-    #     print(kabuka_data[len(kabuka_data)-1][i])
-    for i in range(len(kabuka_data)):
-        print(kabuka_data[i])
+    # kabuka_data = yyy.kabuoji3("https://kabuoji3.com/stock/6501/2015/") # 日立製作所
+    # kabuka_data = yyy.kabuoji3("https://kabuoji3.com/stock/6501/2016/") # 日立製作所
+    # kabuka_data = yyy.kabuoji3("https://kabuoji3.com/stock/6501/2017/") # 日立製作所
+    # kabuka_data = yyy.kabuoji3("https://kabuoji3.com/stock/6501/2018/") # 日立製作所
+    # for i in range(len(kabuka_data)):
+    #     print("{}  {}".format(kabuka_data[i], i+1))
 
+    kabuka_data = yyy.kabuoji3("https://kabuoji3.com/stock/6501/1983/") # 日立製作所
+    for i in range(len(kabuka_data)):
+        print("{}  {}".format(kabuka_data[i], i+1))
+
+    plt.legend(loc='lower right')
     plt.show()
 
 
