@@ -7,10 +7,8 @@ if __name__ == '__main__':
     # kabuka_data = yyy.kabuoji3("https://kabuoji3.com/stock/6501/2016/") # 日立製作所
     # kabuka_data = yyy.kabuoji3("https://kabuoji3.com/stock/6501/2017/") # 日立製作所
     # kabuka_data = yyy.kabuoji3("https://kabuoji3.com/stock/6501/2018/") # 日立製作所
-    # for i in range(len(kabuka_data)):
-    #     print("{}  {}".format(kabuka_data[i], i+1))
 
-    kabuka_data = yyy.kabuoji3("https://kabuoji3.com/stock/6501/1983/") # 日立製作所
+    # kabuka_data = yyy.kabuoji3("https://kabuoji3.com/stock/6501/1983/") # 日立製作所
     for i in range(len(kabuka_data)):
         print("{}  {}".format(kabuka_data[i], i+1))
 
