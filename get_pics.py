@@ -19,8 +19,8 @@ def get_soup(url,header):
 
 def main(args):
     parser = argparse.ArgumentParser(description='Options for scraping Google images')
-    parser.add_argument('-s', '--search', default='banana', type=str, help='search term')
-    parser.add_argument('-n', '--num_images', default=10, type=int, help='num of images to scrape')
+    parser.add_argument('-s', '--search', default='', type=str, help='search term')
+    parser.add_argument('-n', '--num_images', default=0, type=int, help='num of images to scrape')
     parser.add_argument('-o', '--directory', default='./figures', type=str, help='output directory')
     args = parser.parse_args()
 
