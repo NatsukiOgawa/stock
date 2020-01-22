@@ -1,3 +1,4 @@
+from tkinter import messagebox
 import bs4
 import requests
 import re
@@ -60,13 +61,30 @@ class get_soup_class ():
 if __name__ == '__main__':
 
     # ['get_pics.py', '-n', '3', '-s', 'no']
-    round = 3
-    word_list = 'one','two','three','','','','','', \
-                '','','','','','','',''
+    # round = 3
+
+
+    word_list = []
+    i = 0
+    while (True):
+        word = input()
+        if word=="qwerty":
+            break
+        else:
+            word_list.append(word)
+            i += 1
+            print("@@@ @@@")
+
+    print(word_list)
+    # word_list = 'one','two','three','four','five','six','seven','eight', \
+    #             'nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen'
+
+    # """
+    round = len(word_list)
     for i in range(round):
         from sys import argv
         argv[4] = word_list[i]  # 検索ワードを順番に代入していく
-        argv[2] = '10'  # 取ってくる枚数
+        argv[2] = '100'  # 取ってくる枚数
         try:
             aaa = get_soup_class()
             aaa.main(argv)
@@ -90,4 +108,6 @@ if __name__ == '__main__':
         print()
         print()
         print()
+    messagebox.showinfo('通知', '全作業が終了しました.')
     sys.exit()
+    # """
