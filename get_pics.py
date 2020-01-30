@@ -69,7 +69,8 @@ class get_soup_class ():
         for i , (img , Type) in enumerate( ActualImages[0:max_images]):
             try:
                 Type = Type if len(Type) > 0 else 'jpg'
-                print("Downloading image {} ({}), type is {}".format(i, img, Type))
+                # print("Downloading image {} ({}), type is {}".format(i, img, Type))
+                print(i)
                 raw_img = urllib.request.urlopen(img).read()
                 f = open(os.path.join(save_directory , "img_"+str(i)+"."+Type), 'wb')
                 f.write(raw_img)
