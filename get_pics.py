@@ -84,7 +84,7 @@ if __name__ == '__main__':
     for i in range(round):
         from sys import argv
         argv[4] = word_list[i]  # 検索ワードを順番に代入していく
-        argv[2] = '100'  # 取ってくる枚数
+        argv[2] = '3'  # 取ってくる枚数
         try:
             aaa = get_soup_class()
             aaa.main(argv)
