@@ -1,6 +1,3 @@
-import os
-import time
-import datetime
 from tkinter import messagebox
 import bs4
 import requests
@@ -10,6 +7,26 @@ import os
 import argparse
 import sys
 import json
+import os
+import time
+import datetime
+
+
+class file_name_dates_class():
+    def file_name_dates(self):
+        now = datetime.datetime.now()
+        now_id = now
+        now_id = str(now_id)
+
+        id = ""
+        for i in range(20, 26):
+            id += str(now_id[i])
+        file_name = now.strftime('%Y' + "年" + '%m' + "月" + '%d' + "日" + '%H' + "時" + '%M' + "分" + '%S' + "秒")
+        no_mili = file_name
+        file_name += id
+        # print(file_name)
+        return file_name, no_mili
+
 
 # How To
 # (1) ソースコードを保存して命名する (e.g. scrape.py)
@@ -61,25 +78,11 @@ class get_soup_class ():
                 print ("could not load : "+img)
                 print (e)
 
-class file_name_dates_class():
-    def file_name_dates(self):
-        now = datetime.datetime.now()
-        now_id = now
-        now_id = str(now_id)
-
-        id = ""
-        for i in range(20, 26):
-            id += str(now_id[i])
-        file_name = now.strftime('%Y' + "年" + '%m' + "月" + '%d' + "日" + '%H' + "時" + '%M' + "分" + '%S' + "秒")
-        no_mili = file_name
-        file_name += id
-        # print(file_name)
-        return file_name, no_mili
-
 if __name__ == '__main__':
 
     # ['get_pics.py', '-n', '3', '-s', 'no']
     # round = 3
+
     word_list = []
     i = 0
     while (True):
@@ -100,33 +103,12 @@ if __name__ == '__main__':
 
     from sys import argv
     argv.append("-n")
-    argv.append(3)
+    argv.append('10')
     argv.append("-s")
-
+    argv.append([])
     for i in range(round):
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print(argv)
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print(argv)
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-
-        argv.append(word_list[i])   # 検索ワードを順番に代入していく
-        argv[2] = '3'  # 取ってくる枚数
+        argv[4] = word_list[i]  # 検索ワードを順番に代入していく
+        # argv[2] = '100'  # 取ってくる枚数
         try:
             aaa = get_soup_class()
             aaa.main(argv)
