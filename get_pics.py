@@ -146,13 +146,14 @@ if __name__ == '__main__':
         print()
         print()
 
+    aaa = file_name_dates_class()
+    aaa_aaa = aaa.file_name_dates()
+    os.system('git add *')
+    os.system('git commit -m "{}"'.format(aaa_aaa[1]))
+    os.system('git push')
+
     if del_check == 0:
         # """
-        aaa = file_name_dates_class()
-        aaa_aaa = aaa.file_name_dates()
-        os.system('git add *')
-        os.system('git commit -m "{}"'.format(aaa_aaa[1]))
-        os.system('git push')
         os.system('rm -rf figures')
         # """
     messagebox.showinfo('通知', '全作業が終了しました.')
