@@ -1,4 +1,6 @@
-from tkinter import messagebox
+import os
 
-# メッセージボックス（情報）
-messagebox.showinfo('通知', '全作業が終了しました.')
+# os.system('git add *')
+# os.system('git commit -m "test commit"')
+os.system('git push')
+os.system('NatsukiOgawa')
