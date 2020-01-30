@@ -90,7 +90,10 @@ if __name__ == '__main__':
             word_list.append(word)
             i += 1
             print("@@@ @@@")
-
+    print()
+    print("[[ How mush pics ? ]]")
+    picture_num = input()
+    print()
     print(word_list)
     # word_list = 'one','two','three','four','five','six','seven','eight', \
     #             'nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen'
@@ -100,33 +103,12 @@ if __name__ == '__main__':
 
     from sys import argv
     argv.append("-n")
-    argv.append(3)
+    argv.append(picture_num)
     argv.append("-s")
 
     for i in range(round):
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print(argv)
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print(argv)
-        print("@@@ @@@")
-        print("@@@ @@@")
-        print("@@@ @@@")
 
         argv.append(word_list[i])   # 検索ワードを順番に代入していく
-        argv[2] = '3'  # 取ってくる枚数
         try:
             aaa = get_soup_class()
             aaa.main(argv)
