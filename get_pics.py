@@ -99,9 +99,31 @@ if __name__ == '__main__':
     round = len(word_list)
     for i in range(round):
         from sys import argv
+        print("@@@ @@@")
+        print("@@@ @@@")
+        print("@@@ @@@")
         print(argv)
+        print("@@@ @@@")
+        print("@@@ @@@")
+        print("@@@ @@@")
+        print("@@@ @@@")
+        print("@@@ @@@")
+        print("@@@ @@@")
+        argv.append("-n")
+        argv.append(3)
+        argv.append("-s")
+        print("@@@ @@@")
+        print("@@@ @@@")
+        print("@@@ @@@")
+        print("@@@ @@@")
+        print("@@@ @@@")
+        print("@@@ @@@")
+        print(argv)
+        print("@@@ @@@")
+        print("@@@ @@@")
+        print("@@@ @@@")
 
-        argv[4] = word_list[i]  # 検索ワードを順番に代入していく
+        argv.append(word_list[i])   # 検索ワードを順番に代入していく
         argv[2] = '3'  # 取ってくる枚数
         try:
             aaa = get_soup_class()
