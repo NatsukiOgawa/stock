@@ -97,8 +97,13 @@ if __name__ == '__main__':
 
     # """
     round = len(word_list)
+
+    from sys import argv
+    argv.append("-n")
+    argv.append(3)
+    argv.append("-s")
+
     for i in range(round):
-        from sys import argv
         print("@@@ @@@")
         print("@@@ @@@")
         print("@@@ @@@")
@@ -109,9 +114,6 @@ if __name__ == '__main__':
         print("@@@ @@@")
         print("@@@ @@@")
         print("@@@ @@@")
-        argv.append("-n")
-        argv.append(3)
-        argv.append("-s")
         print("@@@ @@@")
         print("@@@ @@@")
         print("@@@ @@@")
