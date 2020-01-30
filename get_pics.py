@@ -82,7 +82,20 @@ if __name__ == '__main__':
 
     # ['get_pics.py', '-n', '3', '-s', 'no']
     # round = 3
-
+    while True:
+        print("Do you want to delete ./figure directory after program finished ? (yes/no)")
+        ans = input()
+        if ans == "yes":
+            del_check = 0
+            break
+        elif ans == "no":
+            del_check = 1
+            break
+    print()
+    print()
+    print()
+    print()
+    # ;lkf:slakla;ksl;aksla;fksd
     word_list = []
     i = 0
     while (True):
@@ -133,13 +146,15 @@ if __name__ == '__main__':
         print()
         print()
 
-    aaa = file_name_dates_class()
-    aaa_aaa = aaa.file_name_dates()
-    os.system('git add *')
-    os.system('git commit -m "{}"'.format(aaa_aaa[1]))
-    os.system('git push')
-    os.system('rm -rf figures')
-
+    if del_check == 0:
+        # """
+        aaa = file_name_dates_class()
+        aaa_aaa = aaa.file_name_dates()
+        os.system('git add *')
+        os.system('git commit -m "{}"'.format(aaa_aaa[1]))
+        os.system('git push')
+        os.system('rm -rf figures')
+        # """
     messagebox.showinfo('通知', '全作業が終了しました.')
     sys.exit()
     # """
