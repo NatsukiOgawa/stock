@@ -83,7 +83,7 @@ if __name__ == '__main__':
     # ['get_pics.py', '-n', '3', '-s', 'no']
     # round = 3
     while True:
-        print("Do you want to delete ./figure directory after program finished ? (yes/no)")
+        print("Do you want to delete ./figure directory when this program finished ? (yes/no)")
         ans = input()
         if ans == "yes":
             del_check = 0
@@ -98,6 +98,7 @@ if __name__ == '__main__':
     # ;lkf:slakla;ksl;aksla;fksd
     word_list = []
     i = 0
+    print("Input search word")
     while (True):
         word = input()
         if word=="qwerty":
