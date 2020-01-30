@@ -80,8 +80,6 @@ if __name__ == '__main__':
 
     # ['get_pics.py', '-n', '3', '-s', 'no']
     # round = 3
-
-
     word_list = []
     i = 0
     while (True):
@@ -101,6 +99,8 @@ if __name__ == '__main__':
     round = len(word_list)
     for i in range(round):
         from sys import argv
+        print(argv)
+
         argv[4] = word_list[i]  # 検索ワードを順番に代入していく
         argv[2] = '3'  # 取ってくる枚数
         try:
