@@ -108,25 +108,34 @@ class finance_yahoo_class():
                 data.append(news_tag[i])
 
             to_plot = data
-
-            for i in range(len(to_plot)):
+            aaa = []
+            i = 0
+            while i < len(to_plot):
+                if ('分割' in to_plot[i]):
+                    i += 2
+                else:
+                    aaa.append(to_plot[i])
+                    i += 1
+                # """
+            for i in range(len(aaa)):
                 if i%7==0:
-                    dates.append(to_plot[i])
-                if i%7==1:
-                    hajime.append(int(to_plot[i]))
-                if i%7==2:
-                    taka.append(int(to_plot[i]))
-                if i%7==3:
-                    yasu.append(int(to_plot[i]))
-                if i%7==4:
-                    owari.append(int(to_plot[i]))
-                if i%7==5:
-                    dekidaka.append(int(to_plot[i]))
-                if i%7==6:
-                    tyousei.append(int(to_plot[i]))
+                    dates.append(aaa[i])
+                elif i%7==1:
+                    hajime.append(int(float(aaa[i])))
+                elif i%7==2:
+                    taka.append(int(float(aaa[i])))
+                elif i%7==3:
+                    yasu.append(int(float(aaa[i])))
+                elif i%7==4:
+                    owari.append(int(float(aaa[i])))
+                elif i%7==5:
+                    dekidaka.append(int(aaa[i]))
+                elif i%7==6:
+                    tyousei.append(int(float(aaa[i])))
 
             url_con += len(dekidaka)
-
+            # for i in range(len(to_plot)):
+            #     print(to_plot[i])
         # plt.plot(range(1, len(hajime)+1), hajime)
         # plt.plot(range(1, len(taka)+1), taka)
         # plt.plot(range(1, len(yasu)+1), yasu)
@@ -139,23 +148,45 @@ class finance_yahoo_class():
 import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
-    # url_url = "https://kabuoji3.com/stock/6501/2019/"
-    # yyy = kabuoji3_class()
-    # kabuka_data = yyy.kabuoji3(url_url)
+    print("[yahoo] / [kabuoji3] (\"L\"eft / \"R\"ight)")
+    z = input()
+    if (z == "l" or z == "L"):
+        # url_url = "https://stocks.finance.yahoo.co.jp/stocks/history/?code=6501.T"
+        url_list = []
+        stock_code = 6501
+        s_year = 1990
+        s_month = 4
+        s_date = 1
+
+        f_year = 2019
+        f_month = 3
+        f_date = 31
+
+        home_page_name = "https://info.finance.yahoo.co.jp/"
+        for k in range(1, 10+1):
+            url_maker = "history/?code={}.T&sy={}&sm={}&sd={}&ey={}&em={}&ed={}&tm=d&p={}".format(stock_code, s_year, s_month, s_date, f_year, f_month, f_date, k)
+            full_url = home_page_name + url_maker
+            url_list.append(full_url)
+        # print(url_list)
+        # for i in range(len(url_list)):
+        #     print(url_list[i])
+                                                                #  .format(<株コード>, <開始年>, <開始月>, <開始日>, <終了年>, <終了月>, <終了日>, <ページ番号>)
+        url_con = 1
+        yyy = finance_yahoo_class()
+        kabuka_data = yyy.finance_yahoo(url_list, url_con)
+        dates = kabuka_data[0]
+        hajime = kabuka_data[1]
+        taka = kabuka_data[2]
+        yasu = kabuka_data[3]
+        owari = kabuka_data[4]
+        dekidaka = kabuka_data[5]
+        tyousei = kabuka_data[6]
+        # """
+        plt.show()
+
+    elif (z == "r" or z == "R"):
+        url_url = "https://kabuoji3.com/stock/6501/2019/"
+        yyy = kabuoji3_class()
+        kabuka_data = yyy.kabuoji3(url_url)
     # """
-    # url_url = "https://stocks.finance.yahoo.co.jp/stocks/history/?code=6501.T"
-    url_list = ["https://info.finance.yahoo.co.jp/history/?code=6501.T&sy=2019&sm=11&sd=7&ey=2020&em=2&ed=5&tm=d&p=1".format(2019, 11, 7, 2, 5), \
-                "https://info.finance.yahoo.co.jp/history/?code=6501.T&sy=2019&sm=11&sd=7&ey=2020&em=2&ed=5&tm=d&p=2", \
-                "https://info.finance.yahoo.co.jp/history/?code=6501.T&sy=2019&sm=11&sd=7&ey=2020&em=2&ed=5&tm=d&p=3"]
-    url_con = 1
-    yyy = finance_yahoo_class()
-    kabuka_data = yyy.finance_yahoo(url_list, url_con)
-    dates = kabuka_data[0]
-    hajime = kabuka_data[1]
-    taka = kabuka_data[2]
-    yasu = kabuka_data[3]
-    owari = kabuka_data[4]
-    dekidaka = kabuka_data[5]
-    tyousei = kabuka_data[6]
-    # """
-    plt.show()
+        plt.show()
