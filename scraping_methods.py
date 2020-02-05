@@ -81,43 +81,33 @@ class kabuoji3_class():
         return data_list_x
 
 class finance_yahoo_class():
-    def finance_yahoo(self, url_list):
+    def finance_yahoo(self, url_list, url_con):
         import urllib.request, urllib.error
         from bs4 import BeautifulSoup
         import csv
 
+        dates = []
+        hajime = []
+        taka = []
+        yasu = []
+        owari = []
+        dekidaka = []
+        tyousei = []
+
         for t in range(len(url_list)):
             url = url_list[t]
-            # url = "https://finance_yahoo.com/stock/6501/2019/"
-            # URLを指定する
             html = urllib.request.urlopen(url)
-            # URLを開く
             soup = BeautifulSoup(html, "html.parser")
-            # BeautifulSoup で開く
-            # HTMLからニュース一覧に使用しているaタグを絞りこんでいく
-            # aaa = soup.select(".padT12 marB10 clearFix")
             news_tag = soup.select("td") ###
-            # print (news_tag)
-            # print(news_tag)
             for i in range(len(news_tag)):
                 news_tag[i] = str(news_tag[i]).replace("<td>", "").replace("</td>", "")
                 news_tag[i] = str(news_tag[i]).replace(",", "")
 
             data = []
-            for i in range(3, 143):
+            for i in range(3, len(news_tag)-1):
                 data.append(news_tag[i])
 
-            for i in range(len(data)):
-                print(data[i])
-
             to_plot = data
-            dates = []
-            hajime = []
-            taka = []
-            yasu = []
-            owari = []
-            dekidaka = []
-            tyousei = []
 
             for i in range(len(to_plot)):
                 if i%7==0:
@@ -135,15 +125,16 @@ class finance_yahoo_class():
                 if i%7==6:
                     tyousei.append(int(to_plot[i]))
 
-            # plt.plot(range(1, len(hajime)+1), hajime)
-            # plt.plot(range(1, len(taka)+1), taka)
-            # plt.plot(range(1, len(yasu)+1), yasu)
-            # plt.plot(range(1, len(owari)+1), owari)
-            plt.plot(range(1, len(dekidaka)+1), dekidaka)
-            # plt.plot(range(1, len(tyousei)+1), tyousei)
+            url_con += len(dekidaka)
+
+        # plt.plot(range(1, len(hajime)+1), hajime)
+        # plt.plot(range(1, len(taka)+1), taka)
+        # plt.plot(range(1, len(yasu)+1), yasu)
+        # plt.plot(range(1, len(owari)+1), owari)
+        plt.plot(range(url_con, len(dekidaka)+url_con), dekidaka)
+        # plt.plot(range(1, len(tyousei)+1), tyousei)
 
         return dates, hajime, taka, yasu, owari, dekidaka, tyousei
-
 
 import matplotlib.pyplot as plt
 
@@ -153,10 +144,12 @@ if __name__ == '__main__':
     # kabuka_data = yyy.kabuoji3(url_url)
     # """
     # url_url = "https://stocks.finance.yahoo.co.jp/stocks/history/?code=6501.T"
-    url_list = ["https://info.finance.yahoo.co.jp/history/?code=6501.T&sy=2019&sm=11&sd=7&ey=2020&em=2&ed=5&tm=d&p=1", \
-                "https://info.finance.yahoo.co.jp/history/?code=6501.T&sy=2019&sm=11&sd=7&ey=2020&em=2&ed=5&tm=d&p=2"]
+    url_list = ["https://info.finance.yahoo.co.jp/history/?code=6501.T&sy=2019&sm=11&sd=7&ey=2020&em=2&ed=5&tm=d&p=1".format(2019, 11, 7, 2, 5), \
+                "https://info.finance.yahoo.co.jp/history/?code=6501.T&sy=2019&sm=11&sd=7&ey=2020&em=2&ed=5&tm=d&p=2", \
+                "https://info.finance.yahoo.co.jp/history/?code=6501.T&sy=2019&sm=11&sd=7&ey=2020&em=2&ed=5&tm=d&p=3"]
+    url_con = 1
     yyy = finance_yahoo_class()
-    kabuka_data = yyy.finance_yahoo(url_list)
+    kabuka_data = yyy.finance_yahoo(url_list, url_con)
     dates = kabuka_data[0]
     hajime = kabuka_data[1]
     taka = kabuka_data[2]
